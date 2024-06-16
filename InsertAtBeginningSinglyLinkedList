@@ -1,0 +1,53 @@
+class Node {
+    int data;
+    Node next;
+
+    Node(int data)
+    {
+        this.data = data;
+        next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+
+    // Menyisipkan node baru di depan Linked List
+    void insertAtBeginning(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        new_node.next = head;
+        head = new_node;
+    }
+
+    // Mencetak isi dari Linked List
+    void printList()
+    {
+        Node node = head;
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args)
+    {
+        LinkedList linkedList = new LinkedList();
+
+        // Menyisipkan node di awal linked list
+        linkedList.insertAtBeginning(3);
+        linkedList.insertAtBeginning(2);
+        linkedList.insertAtBeginning(1);
+
+        System.out.print("Created Linked list is: ");
+        linkedList.printList();
+
+        // Menyisipkan data 4 di awal
+        linkedList.insertAtBeginning(4);
+
+        System.out.print("\nAfter inserting 4 at the beginning: ");
+        linkedList.printList();
+    }
+}
